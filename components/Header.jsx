@@ -5,7 +5,8 @@ import { HomeIcon} from "@heroicons/react/solid";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-between max-w-6xl mx-4 xl:mx-auto">
+    <div className="shadow-sm border-b sticky top-0 bg-white z-30">
+          <div className="flex items-center justify-between max-w-6xl mx-4 xl:mx-auto">
       {/* Left */}
 
       <div className="cursor-pointer h-24 w-24 relative hidden lg:inline-grid">
@@ -37,6 +38,7 @@ const Header = () => {
         <img src="https://media.licdn.com/dms/image/C4D03AQFcRdc7CNsYfw/profile-displayphoto-shrink_800_800/0/1654269434464?e=2147483647&v=beta&t=oVKynO5g8Jkqdwg5_Ug6GUI2FEvUL7urEROUeVFTcjg" alt="user-image" className="h-10 rounded-full cursor-pointer"/>
     </div>
     </div>
+</div>
   );
 };
 

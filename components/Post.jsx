@@ -1,6 +1,8 @@
-import { DotsHorizontalIcon, HeartIcon, ChatIcon,BookmarkIcon,EmojiHappyIcon } from "@heroicons/react/outline"
+import { DotsHorizontalIcon, HeartIcon, ChatIcon, BookmarkIcon, EmojiHappyIcon } from "@heroicons/react/outline";
+import { useSession } from "next-auth/react";
 
-const Post = ({id,username,userImg,img,caption}) => {
+const Post = ({ id, username, userImg, img, caption }) => {
+  const { data: session } = useSession();
   return (
       <div className="bg-white my-7 border rounded-md">
           
@@ -24,7 +26,9 @@ const Post = ({id,username,userImg,img,caption}) => {
               alt=""
           />
 
-        {/* Post Buttons */}
+      {/* Post Buttons */}
+      
+      {session && (
 
           <div className="flex justify-between px-4 pt-4">
               <div className="flex space-x-4">
@@ -33,12 +37,16 @@ const Post = ({id,username,userImg,img,caption}) => {
               </div>
               <BookmarkIcon className="btn"/>
           </div>
+      )}
+
 
           {/* Post comments */}
           
           <p className="p-5 truncate"> <span className="font-bold mr-2">{username}</span> {caption} </p>
           
-          {/* Post input box */}
+      {/* Post input box */}
+      
+      {session && (
 
           <form className="flex items-center p-4">
               <EmojiHappyIcon className="h-7"/>
@@ -49,6 +57,8 @@ const Post = ({id,username,userImg,img,caption}) => {
               />
               <button className="text-blue-400 font-bold">Post</button>
             </form>
+      )}
+
           
     </div>
   )

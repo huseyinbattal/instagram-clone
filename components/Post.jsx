@@ -48,14 +48,14 @@ export default function Post({ img, userImg, caption, username, id }) {
     );
   }, [db]);
   useEffect(() => {
-    setHasLiked(likes.findIndex((like) => like.id === session.user?.uid) !== -1);
+    setHasLiked(likes.findIndex((like) => like.id === session?.user.uid) !== -1);
   }, [likes]);
 
   async function likePost() {
     if (hasLiked) {
-      await deleteDoc(doc(db, "posts", id, "likes", session.user?.uid));
+      await deleteDoc(doc(db, "posts", id, "likes", session?.user.uid));
     } else {
-      await setDoc(doc(db, "posts", id, "likes", session.user?.uid), {
+      await setDoc(doc(db, "posts", id, "likes", session?.user.uid), {
         username: session.user?.username,
       });
     }
@@ -67,7 +67,7 @@ export default function Post({ img, userImg, caption, username, id }) {
     await addDoc(collection(db, "posts", id, "comments"), {
       comment: commentToSend,
       username: session.user?.username,
-      userImage: session.user?.userImg,
+      userImage: userImg,
       timestamp: serverTimestamp(),
     });
   }

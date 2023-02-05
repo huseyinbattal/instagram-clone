@@ -22,6 +22,7 @@ export const authOptions = {
         .join("")
         .toLocaleLowerCase();
       session.user.uid = token.sub;
+      session.user.userImg = session.user.image;
       return session;
     },
   },

@@ -29,7 +29,7 @@ export default function Post({ img, userImg, caption, username, id }) {
   const [comments, setComments] = useState([]);
   const [likes, setLikes] = useState([]);
   const [hasLiked, setHasLiked] = useState(false);
- // const [session.user] = useRecoilState(userState);
+  // const [session.user] = useRecoilState(userState);
   useEffect(() => {
     const unsubscribe = onSnapshot(
       query(
@@ -48,7 +48,9 @@ export default function Post({ img, userImg, caption, username, id }) {
     );
   }, [db]);
   useEffect(() => {
-    setHasLiked(likes.findIndex((like) => like.id === session?.user.uid) !== -1);
+    setHasLiked(
+      likes.findIndex((like) => like.id === session?.user.uid) !== -1
+    );
   }, [likes]);
 
   async function likePost() {
@@ -66,8 +68,8 @@ export default function Post({ img, userImg, caption, username, id }) {
     setComment("");
     await addDoc(collection(db, "posts", id, "comments"), {
       comment: commentToSend,
-      username: session.user?.username,
-      userImage: userImg,
+      username: session?.user.username,
+      userImage: session?.user.userImg,
       timestamp: serverTimestamp(),
     });
   }
@@ -105,7 +107,7 @@ export default function Post({ img, userImg, caption, username, id }) {
       {/* Post comments */}
       <p className="p-5 truncate">
         {likes.length > 0 && (
-          <p className="font-bold mb-1">{likes.length} likes</p>
+          <p className="font-bold mb-1 text-red-500">{likes.length} likes</p>
         )}
         <span className="font-bold mr-2">{username}</span>
         {caption}

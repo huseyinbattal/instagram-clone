@@ -38,4 +38,3 @@ Click to see [Live Demo](https://instagram-clone-beryl-three.vercel.app/)
 - authenticate using next-auth
 - apply like and comment functionality
 - add upload functionality and use Image tag of nextjs
-- Deploying on Vercel

@@ -4,6 +4,10 @@
 
 ![insta](https://user-images.githubusercontent.com/95706081/217327995-5350080d-8812-4942-b3dd-ff5525958299.jpg)
 
+# YouTube Link
+
+Click to see [Demo Video](https://www.youtube.com/watch?v=cp7ARXiEUEE&t=52s) on YouTube.
+
 # Getting Started
 
 git clone https://github.com/huseyinbattal/instagram-clone
